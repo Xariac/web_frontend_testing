@@ -29,8 +29,6 @@ public class Check {
         telephone.sendKeys("7777777");
         message.sendKeys("something to test");
         submit.click();
-        String expectedMessage="Wiadomość wysłana!";
-        WebElement checkMessage = driver.findElement(By.className("frm_message"));
         //While you want to check if program was set correct values on field then you need to comment driver.quit() function.
         driver.quit();
         System.out.println("Test Completed!");
