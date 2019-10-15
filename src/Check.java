@@ -33,9 +33,18 @@ public class Check {
         telephone.sendKeys("7777777");
         message.sendKeys("something to test");
         submit.click();
+        String expectedMessage = "Wiadomość wysłana!";
+        try {
+            String goodMessage = driver.findElement(By.className("frm_message")).getText();
+            System.out.println("Test Completed!");
+            driver.quit();
+        }catch(Exception e){
+            String badMessage = driver.findElement(By.className("frm_error_style")).getText();
+            System.out.println("Form was not send!");
+            driver.quit();
+        }
         //While you want to check if program was set correct values on field then you need to comment driver.quit() function.
-        driver.quit();
-        System.out.println("Test Completed!");
+
     }
 
 }
