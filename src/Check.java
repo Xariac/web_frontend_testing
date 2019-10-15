@@ -57,11 +57,11 @@ public class Check {
         submit.click();
 
         try {
-            String goodMessage = driver.findElement(By.className("frm_message")).getText(); //Jesli znajdziemy dobra wiadomosc jest ok
+            String goodMessage = driver.findElement(By.className("frm_message")).getText(); // If message was good and form was send
             System.out.println("Test Completed!");
             driver.quit();
         }catch(Exception e){
-            String badMessage = driver.findElement(By.className("frm_error_style")).getText(); // Zla wiadomosc formularz sie nie wyslal
+            String badMessage = driver.findElement(By.className("frm_error_style")).getText(); // If message was bad and form was not send
             System.out.println("Form was not send!");
             driver.quit();
         }
