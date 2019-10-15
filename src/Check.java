@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Check {
-
+    @Test
     public static void main(String[] args) throws InterruptedException {
 
 
@@ -19,7 +19,9 @@ public class Check {
         Assert.assertEquals(URL, "http://employsystem.com/kontakt/" );
         driver.manage().window().maximize();
 
-
+        String myEmail = "check@test.pl";
+        String myTelephone = "777777777";
+        String myMessage = "Something to write here";
 
         WebElement email = driver.findElement(By.id("field_contact_email"));
         /* Line below in js was used to find element on page when page is really small like mine when I was testing this so
@@ -29,17 +31,17 @@ public class Check {
         WebElement message = driver.findElement(By.id("field_kggkvh3"));
         WebElement submit = driver.findElement(By.className("gtm-check"));
 
-        email.sendKeys("check@test.pl");
-        telephone.sendKeys("7777777");
-        message.sendKeys("something to test");
+        email.sendKeys(myEmail);
+        telephone.sendKeys(myTelephone);
+        message.sendKeys(myMessage);
         submit.click();
-        String expectedMessage = "Wiadomość wysłana!";
+
         try {
-            String goodMessage = driver.findElement(By.className("frm_message")).getText();
+            String goodMessage = driver.findElement(By.className("frm_message")).getText(); //Jesli znajdziemy dobra wiadomosc jest ok
             System.out.println("Test Completed!");
             driver.quit();
         }catch(Exception e){
-            String badMessage = driver.findElement(By.className("frm_error_style")).getText();
+            String badMessage = driver.findElement(By.className("frm_error_style")).getText(); // Zla wiadomosc formularz sie nie wyslal
             System.out.println("Form was not send!");
             driver.quit();
         }
