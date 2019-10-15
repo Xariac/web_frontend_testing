@@ -54,7 +54,7 @@ public class Check {
         email.sendKeys(myEmail);
         telephone.sendKeys(myTelephone);
         message.sendKeys(myMessage);
-    //    submit.click();
+        submit.click();
 
         try {
             String goodMessage = driver.findElement(By.className("frm_message")).getText(); //Jesli znajdziemy dobra wiadomosc jest ok
@@ -63,7 +63,7 @@ public class Check {
         }catch(Exception e){
             String badMessage = driver.findElement(By.className("frm_error_style")).getText(); // Zla wiadomosc formularz sie nie wyslal
             System.out.println("Form was not send!");
-     //       driver.quit();
+            driver.quit();
         }
         //While you want to check if program was set correct values on field then you need to comment driver.quit() function.
 
