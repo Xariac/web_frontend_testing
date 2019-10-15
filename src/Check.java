@@ -3,6 +3,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.JavascriptExecutor;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class Check {
 
@@ -13,6 +15,8 @@ public class Check {
 
         WebDriver driver = new ChromeDriver();
         driver.get("http://employsystem.com/kontakt/");
+        String URL = driver.getCurrentUrl();
+        Assert.assertEquals(URL, "http://employsystem.com/kontakt/" );
         driver.manage().window().maximize();
 
 
